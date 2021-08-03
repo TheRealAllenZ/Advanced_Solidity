@@ -1,6 +1,6 @@
 pragma solidity ^0.5.0;
 
-import "./PupperCoin.sol";
+import "./AraiCoin.sol";
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5.0/contracts/crowdsale/Crowdsale.sol";
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5.0/contracts/crowdsale/emission/MintedCrowdsale.sol";
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5.0/contracts/crowdsale/validation/CappedCrowdsale.sol";
@@ -9,13 +9,13 @@ import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5
 
 // @TODO: Inherit the crowdsale contracts
 
-contract PupperCoinSale is Crowdsale, MintedCrowdsale, CappedCrowdsale, TimedCrowdsale, RefundableCrowdsale {
+contract AraiCoinSale is Crowdsale, MintedCrowdsale, CappedCrowdsale, TimedCrowdsale, RefundableCrowdsale {
 
     constructor(
         // @TODO: Fill in the constructor parameters!
         uint256 rate,
         address payable wallet,
-        PupperCoin token,
+        AraiCoin token,
         uint256 goal,
         uint256 openingTime,
         uint256 closingTime
@@ -32,7 +32,7 @@ contract PupperCoinSale is Crowdsale, MintedCrowdsale, CappedCrowdsale, TimedCro
     }
 }
 
-contract PupperCoinSaleDeployer {
+contract AraiCoinSaleDeployer {
 
     address public token_sale_address;
     address public token_address;
@@ -45,15 +45,15 @@ contract PupperCoinSaleDeployer {
     )
         public
     {
-        // @TODO: create the PupperCoin and keep its address handy
-        PupperCoin token = new PupperCoin(name, symbol, 0);
+        // @TODO: create the AraiCoin and keep its address handy
+        AraiCoin token = new AraiCoin(name, symbol, 0);
         token_address = address(token);
 
-        // @TODO: create the PupperCoinSale and tell it about the token, set the goal, and set the open and close times to now and now + 24 weeks.
-        PupperCoinSale Pupper_Sale = new PupperCoinSale(1, wallet, token, 5, now, now + 24 weeks );
-        token_sale_address = address(Pupper_Sale);
+        // @TODO: create the AraiCoinSale and tell it about the token, set the goal, and set the open and close times to now and now + 24 weeks.
+        AraiCoinSale Arai_Sale = new AraiCoinSale(1, wallet, token, 5, now, now + 24 weeks );
+        token_sale_address = address(Arai_Sale);
 
-        // make the PupperCoinSale contract a minter, then have the PupperCoinSaleDeployer renounce its minter role
+        // make the AraiCoinSale contract a minter, then have the AraiCoinSaleDeployer renounce its minter role
         token.addMinter(token_sale_address);
         token.renounceMinter();
     }
