@@ -8,6 +8,7 @@ Set the initial token amount to **30** tokens just to try out the Contract Deplo
 
 <u> Success ! </U>
 
+***500 Tokens*** goal - created and deployed <u>BELOW</u>
 
 ## Next : Launch a Token Sale
 
