@@ -1,6 +1,6 @@
-# Unit 21: You sure can attract a crowd!
+# Unit 21: Super Arai Coin Sale!
 
-![crowd](Images/crowd.png)
+![crowd](Images/arai.jpg)
 
 ## Background
 
